@@ -5,8 +5,16 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        int [][] arr1 = {{5,7,3,17}, {7,0,1,12}, {8,1,2,3}};
+        int[][] arr1 = {{5, 7, 3, 17}, {7, 0, 1, 12}, {8, 1, 2, 3}};
         test(arr1);
+        int[][] arr2 = {{1665, 165, -1656, 8954}, {-44444, 0, 1, 0}, {4525, -45655, 8888, 1}};
+        test(arr2);
+        int[][] arr3 = {{1, 2, 3}, {1, 2, 3}, {1, 2, 3}};
+        test(arr3);
+        int[][] arr4 = {{-144, 2, 3}, {1, 2, 3}, {1, -55, 1}};
+        test(arr4);
+        int[][] arr5 = {{0, 0, -555}, {0, 2, -555}, {0, 0, 0}};
+        test(arr5);
         Scanner scanner = new Scanner(System.in);
         System.out.print("Введите количество строк массива: ");
         int row = scanner.nextInt();
@@ -39,7 +47,7 @@ public class Main {
     }
 
     public static void printResult(int[] result, int[][] arr) {
-        if (result[2] < 2) {
+        if (result[2] <= 1) {
             System.out.println("Нет квадрата с макс суммой");
         } else {
             System.out.println("Квадрат с максимальной суммой: ");
@@ -65,14 +73,14 @@ public class Main {
                 } else {
                     length = arr[i].length - j;
                 }
-                while (length >= 0) {
+                while (length >= 2) {
                     int sum = 0;
                     for (int ii = i; ii < i + length; ii++) {
                         for (int jj = j; jj < j + length; jj++) {
                             sum = sum + arr[ii][jj];
                         }
                     }
-                    if (sum > max) {
+                    if (sum >= max) {
                         max = sum;
                         i1 = i;
                         j1 = j;
