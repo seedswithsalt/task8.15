@@ -55,12 +55,12 @@ public class Main {
 
     public static void printResult(int[] result, int[][] arr) {
         if (result[2] <= 1) {
-            System.out.println("Нет квадрата с макс суммой");
+            System.out.println("Ошибка");
         } else {
             System.out.println("Квадрат с максимальной суммой: ");
-            for (int i = 1; i < result[2]; i++) {
-                for (int j = 1; j < result[2]; j++) {
-                    System.out.print(arr[result[0] + i - 1][result[1] + j - 1] + "\t");
+            for (int i = 0; i < result[2]; i++) {
+                for (int j = 0; j < result[2]; j++) {
+                    System.out.print(arr[result[0] + i][result[1] + j] + "\t");
                 }
                 System.out.println();
             }
@@ -71,7 +71,7 @@ public class Main {
         int max = arr[0][0];
         int i1 = 1;
         int j1 = 1;
-        int k = 1;
+        int totallength = 1;
         int length;
         for (int i = 0; i < arr.length; i++) {
             for (int j = 0; j < arr[i].length; j++) {
@@ -91,12 +91,12 @@ public class Main {
                         max = sum;
                         i1 = i;
                         j1 = j;
-                        k = length + 1;
+                        totallength = length;
                     }
                     length--;
                 }
             }
         }
-        return new int[]{i1, j1, k};
+        return new int[]{i1, j1, totallength};
     }
 }
